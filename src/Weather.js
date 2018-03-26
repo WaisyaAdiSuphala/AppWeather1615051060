@@ -54,12 +54,12 @@ let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ this.state.city +
     return (
     <View style={styles.containerMain}>
       <View style={styles.box2}>
-          <Text style={{ textAlign: 'center', paddingTop: 15,fontSize: 20 }}>Pilih Nama Kota</Text>
+        <Text style={{ textAlign: 'center', paddingTop: 15, fontSize: 20, }}>Masukan Nama Kota</Text>
           <TextInput
-                style={{ height: 40, color: 'white'}}
+                style={{ width: 200, height: 40, color: 'black', backgroundColor: '#FFFFFF' }}
               placeholder=" input "
               onChangeText={(city) => this.setState({ city })}
-            />
+              />
             <Button
               onPress={() => this.getWeather()}
               title="Mencari"
@@ -70,27 +70,9 @@ let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ this.state.city +
 
       <View style={styles.box4}>
         <View style={styles.button}>
-          <Text> City : { this.state.city} </Text>
-        </View>
-        <View style={styles.button}>
-        <View style={styles.iconContainer}>
-          <Image source={tempIcon} style={styles.icon} />
-       </View>
-          <Text> Temp : { this.state.forecast.temp} </Text>
-        </View>
-      </View>
-      <View style={styles.box4}>
-        <View style={styles.button}>
-        <View style={styles.iconContainer}>
-          <Image source={mainIcon} style={styles.icon} />
-       </View>
-          <Text> Main : { this.state.forecast.main} </Text>
-        </View>
-        <View style={styles.button}>
-        <View style={styles.iconContainer}>
-          <Image source={mainIcon} style={styles.icon} />
-       </View>
-          <Text> Main Desc : { this.state.forecast.description} </Text>
+          <Text> Suhu : { this.state.forecast.temp} </Text>
+          <Text> Cuaca : { this.state.forecast.main} </Text>
+          <Text> Deskripsi : { this.state.forecast.description} </Text>
         </View>
       </View>
 
@@ -100,7 +82,7 @@ let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ this.state.city +
 }
 const styles = StyleSheet.create({
   containerMain: {
-    backgroundColor: '#32CD32',
+    backgroundColor: '#C8E6C9',
     flex: 1,
     flexDirection: 'column'
   },
@@ -115,7 +97,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 20
   },
   box3: {
     flex: 0.5,
@@ -143,12 +126,13 @@ const styles = StyleSheet.create({
     margin: 10
   },
   button: {
+    marginTop: 300,
     width: 300,
-    height: 40,
+    height: 400,
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: '#2E7D32',
-    flexDirection: 'row'
+    flexDirection: 'column'
   },
   iconContainer: {
     alignItems: 'center',
